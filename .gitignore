@@ -1,0 +1,6 @@
+# Logs
+logs
+*.log
+
+# PhpStorm Project files
+.idea

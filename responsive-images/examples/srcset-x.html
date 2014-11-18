@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <meta name=viewport content="width=device-width,initial-scale=1">
+        <title>2x resolution - Responsive images</title>
+
+        <style type="text/css">
+            body {
+                margin: 0;
+            }
+
+            .site {
+                max-width: 1280px;
+                margin: 0 auto;
+            }
+
+            img {
+                width: 100%;
+            }
+        </style>
+
+        <script async="true" src="js/picturefill.js"></script>
+    </head>
+
+    <body>
+        <div class="site">
+            <img srcset="img/x-large@2x.jpg 2x" src="img/x-large.jpg">
+        </div>
+    </body>
+</html>

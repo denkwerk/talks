@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <meta name=viewport content="width=device-width,initial-scale=1">
+        <title>picture element - Responsive images</title>
+
+        <style type="text/css">
+            body {
+                margin: 0;
+                font-family: Helvetica, Arial, sans-serif;
+            }
+
+            img {
+                width: 100%;
+            }
+
+            .site {
+                max-width: 1280px;
+                margin: 0 auto;
+            }
+
+            .text {
+                padding: 0 1em 1em;
+            }
+
+            .align-right {
+                text-align: right;
+            }
+        </style>
+
+        <script async="true" src="js/picturefill.js"></script>
+    </head>
+
+    <body>
+        <div class="site">
+            <picture>
+                <source
+                        media="(min-resolution: 144dpi), (-webkit-min-device-pixel-ratio: 1.5)"
+                        srcset="img/x-large@2x.jpg 2560w, img/large@2x.jpg 2048w, img/medium@2x.jpg 1680w, img/small@2x.jpg 840w">
+                <source srcset="img/x-large.jpg 1280w, img/large.jpg 1024w, img/medium.jpg 840w, img/small.jpg 420w">
+                <img src="img/small.jpg">
+            </picture>
+
+            <p class="align-right">Image © Universal Studios</p>
+
+            <div class="text">
+                <h2>Picture element with 2x media query</h2>
+                <p>A optimized JPG with 30% quality will be used for high density screens (starting at 144dpi/1.5dppx).<br>
+                    This reduces the file size by half (162 KB instead of 368 KB at 2560px width = <strong>56% savings</strong>).</p>
+
+                <h3>Notes</h3>
+                <ul>
+                    <li>IE 9+ only supports dpi min-resolution instead of dppx, so 144dpi is used for the 2x media query</li>
+                    <li>-webkit-min-device-pixel-ratio is required for iOS 7.1+ and Android 4.1+</li>
+                </ul>
+
+                <p>Source: <a href="http://caniuse.com/#feat=css-media-resolution" target="_blank">Can I use Media Queries: resolution feature</a></p>
+
+                <h3>Browser support</h3>
+                <ul>
+                    <li>Chrome 38+ (also for Android)</li>
+                    <li>Opera 25+</li>
+                    <li>Firefox 34+ (optional, must be enabled via browser settings)</li>
+                </ul>
+
+                <p>Source: <a href="http://caniuse.com/#feat=picture" target="_blank">Can I use Picture element</a></p>
+
+                <p>For every other browser a JavaScript fallback is provided by <strong><a href="http://scottjehl.github.io/picturefill/" target="_blank">Picturefill</a></strong>.</p>
+            </div>
+        </div>
+    </body>
+</html>
