@@ -128,3 +128,21 @@ span.normal-in-h1 {
 .nowrap {
     white-space: nowrap;
 }
+
+h1.flying-words {
+	margin: 100px 0;
+}
+
+.flying-item {
+	float: left;
+	margin-right: 200px;
+}
+
+.flyout-group {
+	position: relative;
+	left:18%;
+}
+
+h3.lunch-text {
+	margin-top: 30px;
+}
