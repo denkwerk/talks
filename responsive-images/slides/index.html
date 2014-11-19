@@ -255,7 +255,7 @@
                             <li class="fragment">iPhone, iPad</li>
                             <li class="fragment">viele Android & Windows Smartphones und Tablets</li>
                             <li class="fragment">Retina MacBook Pro, 4K Monitore, Retina iMac 5K</li>
-                        </ul
+                        </ul>
                         <br><br>
                         <p class="fragment">... <span class="coral">und viele mehr in der Zukunft</span></p>
                     </section>
@@ -417,80 +417,41 @@
                         </div>
                         <br>
                     </section>
+                </section>
+
+                <section>
+                    <section>Das wars?</section>
 
                     <section>
-                        <h3>Was macht der Browser stattdessen?</h3>
+                        <h1>Nicht so schnell</h1>
                         <br>
-                        <p class="fragment">Auf Retina-Geräten führt <span class="coral">scrset w</span> dazu, dass sich <span class="coral">der Browser</span> die Version des Bildes sucht, die der <span class="coral">Retina-Größe</span> entspricht.</p>
-                        <br>
-                        <p></p>
-                        <br>
-                        <div class="grid-2">
-                            <div class="row">
-                                <div class="col">
-                                    <small class="fragment">Auf Smartphones wird nun dieses Bild verwendet:</small>
-                                    <br>
-                                    <img class="fragment" src="../examples/img/medium.jpg">
-                                </div>
-                                <div class="col">
-                                    <small class="fragment">Obwohl dieses Bild viel besser wäre:</small>
-                                    <br>
-                                    <img class="fragment" src="../examples/img/small@2x.jpg">
-                                    <br>
-                                    <p class="fragment">Einsparmöglichkeit: <span class="coral">59%</span></p>
-                                </div>
-                            </div>
-                        </div>
+                        <p class="fragment">Es gibt da noch das <span class="coral">picture Element</span></p>
                     </section>
                 </section>
 
-                <section>Das wars?</section>
-
                 <section>
                     <section>
-                        <h3>Unsere Lösung:</h3>
-                        <h2 class="fragment">Eine zusätzliche <span class="coral">Retina-Abfrage</span></h2>
-                        <p class="fragment">mit dem picture Element*</p>
-                        <br><br>
-                        <small class="fragment">* ohne zusätzliches JavaScript</small>
-                    </section>
-
-                    <section>
-                        <h3>Das picture Element</h3>
+                        <h2>&lt;picture&gt;</h2>
                         <br>
                         <ul>
                             <li>wurde im <span class="coral">September 2014</span> in <span class="coral">Chrome 38</span>, <span class="coral">Chrome</span> für <span class="coral">Android</span> und <span class="coral">Opera 25</span> integriert, zusammen mit den bereits vorgestellten Features srcset w und sizes</li>
-                            <li>Damit können bereits <span class="coral">weltweit 22%</span>* darauf nativ zugreifen<br><br>
-                                <small>* Quelle: <a href="http://caniuse.com/#feat=picture" target="_blank">http://caniuse.com/#feat=picture</a></small><br></li>
-                            <li>In <span class="coral">Firefox</span> sind picture, srcset und sizes ebenfalls seit <span class="coral">Version 33</span> implementiert, müssen aber  vom Benutzer über die about:config aktiviert werden, da noch <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1067345" target="_blank">ein Bug</a> beim Laden des richtigen Bildes vorhanden ist</li>
+                            <li>Damit können bereits <span class="coral">weltweit 22%</span>* darauf nativ zugreifen</li>
+                            <li>Und für die anderen Browser kommt <span class="coral">Picturefill.js</span> zum Einsatz</li>
                         </ul>
+                        <br><br><br>
+                        <small>* Quelle: <a href="http://caniuse.com/#feat=picture" target="_blank">http://caniuse.com/#feat=picture</a></small>
                     </section>
 
                     <section>
-                        <ul>
-                            <li><span class="coral">Microsoft</span> denkt über eine Implementierung im <span class="coral">IE</span> nach</li>
-                            <li><span class="coral">Apple</span> hat sich noch nicht geäußert, <span class="coral">Safari</span> unterstützt derzeit nur srcset x</li>
-                            <li>Für diese Browser kommt <span class="coral">Picturefill.js</span> zum Einsatz</li>
-                        </ul>
-                        <br><br>
-                        <p>Weitere Infos zum Status der Implementierung: <a href="http://responsiveimages.org/#implementation" target="_blank">http://responsiveimages.org/#implementation</a>
-                    </section>
-
-                    <section>
-                        <p><span class="coral">picture</span> basiert ebenfalls auf der <span class="coral">srcset</span> Logik,<br>man kann aber <span class="coral">zusätzliche Bedingungen</span> angeben.</p>
-                        <br>
-                        <p>Damit lassen wir weiterhin den Browser entscheiden, welche <span class="coral">Bildgröße</span> für den aktuellen <span class="coral">Viewport</span> geeignet ist, auf Retina-Geräten geben wir ihm aber nur die <span class="coral">optimierten JPGs</span> zur Auswahl.</p>
-                    </section>
-                    <section>
-                        <p>Unser vorheriges <span class="coral">srcset</span> Beispiel</p>
+                        <p>Unser vorheriges Beispiel</p>
 
                         <pre>
                             <code class="html">
     <img srcset="
-        img/x-large.jpg 1280w,
-        img/large.jpg 1024w,
-        img/medium.jpg 840w
-        img/small.jpg 420w" src="img/small.jpg">
+                img/x-large.jpg 1280w,
+                img/large.jpg 1024w,
+                img/medium.jpg 840w
+                img/small.jpg 420w">
                             </code>
                         </pre>
 
@@ -505,7 +466,6 @@
                 img/large.jpg 1024w,
                 img/medium.jpg 840w,
                 img/small.jpg 420w">
-            <img src="img/small.jpg">
         </picture>
                                 </code>
                             </pre>
@@ -513,80 +473,95 @@
                     </section>
 
                     <section>
-                        <h3>Wie wir picture source nutzen</h3>
+                        <p>Mit picture ist es außerdem möglich, <span class="coral">mehrere source Tags einzubinden</span> und diese mit <span class="coral">Media Queries</span> zu versehen.</p>
                         <br>
-                        <ul>
-                            <li>Über das Attribut <span class="coral">media</span> können wir Bedingungen mit <span class="coral">Media Queries</span> definieren</li>
-                            <li>Es können <span class="coral">beliebig viele source Tags</span> definiert werden</li>
-                            <li>Der Browser analysiert sie <span class="coral">der Reihe nach</span></li>
-                            <li>Sobald eine <span class="coral">Bedingung zutrifft</span>, wird das entsprechende <span class="coral">source</span> verwendet</li>
-                        </ul>
+                        <div class="fragment">
+                            <p>Z.B. gibt es diesen Retina Media Query,<br>
+                                den wir für unsere Retina-Grafiken einsetzen können:</p>
+                            <pre>
+                                <code class="html">
+    <source media="(min-resolution: 192dpi),
+                   (-webkit-min-device-pixel-ratio: 2)">
+                        </code>
+                            </pre>
+                            <p><span class="coral">192 dpi resolution</span> = Retina-Auflösung, genau wie die für Safari und iOS benötigte Syntax <span class="coral">Device pixel ratio</span> von <span class="coral">2</span>.</p>
+                        </div>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h1>Und das machen wir</h1>
+                        <p></p>
                     </section>
 
                     <section>
 
                         <p>Für die <span class="coral">Retina-Varianten</span> unseres Bildes<br>
                             fügen wir ein zusätzliches <span class="coral">source Tag</span> ein:</p>
-                        <pre class="fragment">
-                            <code class="html">
-    <picture>
-        <source media="(min-resolution: 192dpi),
-                       (-webkit-min-device-pixel-ratio: 2)" srcset="
-            img/x-large@2x.jpg 2560w,
-            img/large@2x.jpg 2048w,
-            img/medium@2x.jpg 1680w,
-            img/small@2x.jpg 840w">
-        <source srcset="
-            img/x-large.jpg 1280w,
-            img/large.jpg 1024w,
-            img/medium.jpg 840w,
-            img/small.jpg 420w">
-        <img src="img/small.jpg">
-    </picture>
-                            </code>
-                        </pre>
+
+                        <div class="fragment">
+                            <pre>
+                                <code class="html">
+            <picture>
+                <source media="(min-resolution: 192dpi),
+                               (-webkit-min-device-pixel-ratio: 2)" srcset="
+                    img/x-large@2x.jpg 2560w,
+                    img/large@2x.jpg 2048w,
+                    img/medium@2x.jpg 1680w,
+                    img/small@2x.jpg 840w">
+                <source srcset="
+                    img/x-large.jpg 1280w,
+                    img/large.jpg 1024w,
+                    img/medium.jpg 840w,
+                    img/small.jpg 420w">
+                <img src="img/small.jpg">
+            </picture>
+                                </code>
+                            </pre>
+                            <p>Der Media Query sorgt dafür, dass <span class="coral">Retina-Geräte das erste source verwenden</span>, normale Displays benutzen das zweite.</p>
+                        </div>
+                    </section>
+
+
+                    <section>
+                        <p>Damit lassen wir weiterhin den Browser entscheiden, welche <span class="coral">Bildgröße</span> für den aktuellen <span class="coral">Viewport</span> geeignet ist.</p>
+                        <br><br>
+                        <ul>
+                            <li>Auf Retina-Geräten geben wir die <span class="coral">optimierten JPGs</span> mit <span class="coral">30% Qualität</span> und <span class="coral">doppeler (Retina) Größe</span> zur Auswahl</li>
+                            <li>Normale Displays nutzen die JPGs in Normalgröße</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <h1>Probiert es aus <span class="coral">:</span>)</h1>
+                    <br>
+                    <br>
+                    <div class="fragment">
+                        <p>Die Beispiele aus diesem Talk findet ihr hier:</p>
+                        <br>
+                        <ul>
+                            <li><a href="../examples/srcset-x.html" target="_blank">Retina-Optimierung mit srcset x</a></li>
+                            <li><a href="../examples/srcset-w.html" target="_blank">Dem Browser mehrere Bilder bereitstellen mit srcset w</a></li>
+                            <li><a href="../examples/picture.html" target="_blank">Das picture Element mit Retina Media Query</a></li>
+                        </ul>
+                    </div>
+                    <br><br>
+                    <p class="fragment">Und die Slides sind ab sofort online unter<br>
+                        <a href="http://denkwerk.github.io/talks/">http://denkwerk.github.io/talks/</a></p>
+                </section>
+
+                <section>
+                    <section>
+                        <h1>Danke.</h1>
                     </section>
 
                     <section>
-                        <h3>Der Retina Media Query</h3>
-                        <pre>
-                            <code class="html">
-        <source media="(min-resolution: 192dpi),
-                       (-webkit-min-device-pixel-ratio: 2)">
-                            </code>
-                        </pre>
-
-                        <ul class="fragment">
-                            <li><span class="coral">min-reolution dpi</span> wird von allen Brwosern bis auf Safari unterstützt</li>
-                        </ul>
-                        <p></p>
+                        <h1>Fragen?</h1>
+                        <br><br>
+                        <p>Gerne jetzt oder im Anschluss oder per Twitter (<a href="https://twitter.com/agorilla" target="_blank">@agorilla</a>)</p>
                     </section>
-                </section>
-
-                <section>
-                    <h2>Weitere Quellen:</h2>
-                    <p>
-                        <a class="url-link" href="http://responsiveimages.org/" target="_blank">http://responsiveimages.org/</a>
-                    </p>
-                    <p>
-                        <a class="url-link" href="http://www.elmastudio.de" target="_blank">http://www.elmastudio.de</a>
-                    </p>
-                    <p>
-                        <a class="url-link" href="http://www.drweb.de" target="_blank">http://www.drweb.de/</a>
-                    </p>
-                    <p>
-                        <a class="url-link" href="http://adaptive-images.com/" target="_blank">http://adaptive-images.com/</a>
-                    </p>
-                    <p>
-                        <a class="url-link" href="http://www.hongkiat.com/blog/serving-responsive-images/" target="_blank">http://www.hongkiat.com/blog/serving-responsive-images/</a>
-                    </p>
-                    <p>
-                        <a class="url-link" href="http://blog.kulturbanause.de/2014/09/responsive-images-srcset-sizes-adaptive/" target="_blank">http://blog.kulturbanause.de/2014/09/responsive-images-srcset-sizes-adaptive/</a>
-                    </p>
-                </section>
-
-                <section>
-                    <h1>Danke!</h1>
                 </section>
 			</div>
 
