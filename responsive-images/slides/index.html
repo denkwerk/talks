@@ -353,11 +353,11 @@
                         <br>
                         <pre>
                             <code class="html">
-			<img srcset="
-				          img/x-large.jpg 1280w,
-				          img/large.jpg 1024w,
-				          img/medium.jpg 840w
-				          img/small.jpg 420w">
+    <img srcset="
+                  img/x-large.jpg 1280w,
+                  img/large.jpg 1024w,
+                  img/medium.jpg 840w
+                  img/small.jpg 420w">
                             </code>
                         </pre>
                         <p>Die <span class="coral">w</span> Angabe weist den Browser darauf hin, <span class="coral">in welchen Breiten</span> das Bild zur Verfügung steht, <span class="coral">ohne</span> dass dieser die Bilder <span class="coral">herunterladen</span> muss.</p>
@@ -406,21 +406,29 @@
                     </section>
 
                     <section>
-                        <h2>Und was ist mit Retina-Optimierung?</h2>
-                        <br>
+                        <h1>Was fehlt?</h1>
+                        <h2 class="fragment"><span class="coral">Die Retina-Optimierung</span></h2>
+                    </section>
+                    <section>
+                        Wir könnten ja <span class="coral">srcset w</span> und <span class="coral">x</span> für unsere <span class="coral">Retina-Bilder</span> kombinieren ...</p>
+
+                        <br><br>
                         <div class="fragment">
-                            <p>Die Kobination von <span class="coral">scrset w</span> und <span class="coral">x</span> ist <span class="coral">nicht möglich</span>*.
-                                <br><br>
-                                <small>* Quelle: <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#attr-img-srcset" target="_blank">https://html.spec.whatwg.org/multipage/embedded-content.html#attr-img-srcset</a></small></p>
+                        <h1>Leider nein <span class="coral">:</span>(</h1>
+                        <br>
+                        <br>
+                        <br>
+                        <p><small>Weitere Infos: <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#attr-img-srcset" target="_blank">https://html.spec.whatwg.org/multipage/embedded-content.html#attr-img-srcset</a></small></p>
                         </div>
                         <br>
-                        <p class="fragment">Somit können <span class="coral">keine</span> Retina-Grafiken <br>mit <span class="coral">optimierter JPG-Qualität</span> eingebunden werden.</p>
                     </section>
 
                     <section>
                         <h3>Was macht der Browser stattdessen?</h3>
                         <br>
                         <p class="fragment">Auf Retina-Geräten führt <span class="coral">scrset w</span> dazu, dass sich <span class="coral">der Browser</span> die Version des Bildes sucht, die der <span class="coral">Retina-Größe</span> entspricht.</p>
+                        <br>
+                        <p></p>
                         <br>
                         <div class="grid-2">
                             <div class="row">
