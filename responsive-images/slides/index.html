@@ -323,36 +323,37 @@
 
                 <section>
                     <section>
-                        <h3>2. Ansatz:</h3>
+                        <h3>2. Möglichkeit:</h3>
                         <h2>Dem Browser mehrere <span class="coral">Bilder bereitstellen</span></h2>
                         <p>mit srcset w</p>
                     </section>
                     <section>
                         <h3>Beispiel</h3>
                         <br>
-                        <p>Unsere Webseite hat <span class="coral">3 Breakpoints</span> <br>und eine Maximalbreite von <span class="coral">1280 Pixel</span>.</p>
+                        <p>Unsere Webseite hat <span class="coral">4 Breakpoints</span> <br>und eine Maximalbreite von <span class="coral">1280 Pixel</span>.</p>
                         <br>
                         <ul>
-                            <li class="fragment">Mobile Breakpoint: <span class="coral">420 Pixel</span></li>
-                            <li class="fragment">Tablet: <span class="coral">840 Pixel</span></li>
-                            <li class="fragment">Desktop: <span class="coral">1280 Pixel</span></li>
+                            <li>Mobile Breakpoint: <span class="coral">420 Pixel</span></li>
+                            <li>Tablet: <span class="coral">840 Pixel</span></li>
+                            <li>Desktop klein: <span class="coral">1024 Pixel</span></li>
+							<li>Desktop groß: <span class="coral">1280 Pixel</span></li>
                         </ul>
                         <br><br>
-                        <p class="fragment">In diesen Größen speichern wir unser Bild ab,<br> plus einer kleineren Desktop-Variante mit <span class="coral">1024 Pixel</span> Breite.</p>
+                        <p>In diesen Größen speichern wir unser Bild ab.</p>
                     </section>
                     <section>
                         <p>Und so binden wir das Bild mit <span class="coral">srcset w</span> in den <span class="coral">4 Größen</span> ein:</p>
                         <br>
                         <pre>
                             <code class="html">
-    <img srcset="
-        img/x-large.jpg 1280w,
-        img/large.jpg 1024w,
-        img/medium.jpg 840w
-        img/small.jpg 420w" src="img/small.jpg">
+			<img srcset="
+				          img/x-large.jpg 1280w,
+				          img/large.jpg 1024w,
+				          img/medium.jpg 840w
+				          img/small.jpg 420w">
                             </code>
                         </pre>
-                        <p class="fragment">Die <span class="coral">w</span> Angabe weist den Browser darauf hin, <span class="coral">in welchen Breiten</span> das Bild zur Verfügung steht, <span class="coral">ohne</span> dass dieser die Bilder <span class="coral">herunterladen</span> muss.</p>
+                        <p>Die <span class="coral">w</span> Angabe weist den Browser darauf hin, <span class="coral">in welchen Breiten</span> das Bild zur Verfügung steht, <span class="coral">ohne</span> dass dieser die Bilder <span class="coral">herunterladen</span> muss.</p>
                     </section>
 
                     <section>
@@ -361,19 +362,19 @@
                                 <div class="col">
                                     <img src="../examples/img/x-large.jpg">
                                 </div>
-                                <div class="col">
-                                    <img src="../examples/img/large.jpg" class="fragment">
-                                    <small class="fragment">Einsparung 28%</small>
+                                <div class="col fragment">
+                                    <img src="../examples/img/large.jpg">
+                                    <small>Einsparung 28%</small>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col">
-                                    <img src="../examples/img/medium.jpg" class="fragment">
-                                    <small class="fragment">Einsparung 45%</small>
+                                <div class="col fragment">
+                                    <img src="../examples/img/medium.jpg">
+                                    <small>Einsparung 45%</small>
                                 </div>
-                                <div class="col">
-                                    <img src="../examples/img/small.jpg" class="fragment">
-                                    <small class="fragment">Einsparung 80%</small>
+                                <div class="col fragment">
+                                    <img src="../examples/img/small.jpg">
+                                    <small>Einsparung 80%</small>
                                 </div>
                             </div>
                         </div>
@@ -381,24 +382,9 @@
 
                     <section>
                         <p>Falls das Bild nicht den kompletten Bildschirm einnehmen soll, kann zusätzlich das Attribut <span class="coral">sizes</span> verwendet werden, um dem Browser mitzuteilen, <span class="coral">in welcher Größe</span> das Bild eingesetzt wird.</p>
-
-                        <br>
-                        <br>
-
-                        <div class="fragment">
-                        <h3>Beispiel:</h3>
-                        <p>Ab einem Viewport von <span class="coral">1024 Pixel</span> <br>soll das Bild <span class="coral">nur noch halb so groß</span> dargestellt werden.</p>
-                        </div>
-
-                        <pre class="fragment">
-                            <code class="html">
-    <img srcset="img/large.jpg 1024w,
-                 img/medium.jpg 840w,
-                 img/small.jpg 420w" sizes="(min-width: 1280px) 640px,
-                                            (min-width: 1024px) 50vw,
-                                            100vw">
-                            </code>
-                        </pre>
+						<br />
+						<br />
+						<small>Mehr Informationen unter: <a href="http://css-tricks.com/video-screencasts/133-figuring-responsive-images/" target="_blank">http://css-tricks.com/video-screencasts/133-figuring-responsive-images/</a></small>
                     </section>
 
                     <section>
