@@ -53,27 +53,27 @@
     position: relative;
 }
 
-.reveal section .img-col-2 {
-    margin-bottom: 1em;
-}
-
-.reveal section .img-col-2 img {
+.reveal section .grid-2 .col {
     float: left;
     width: 48%;
 }
 
-.reveal section .img-col-2 img:last-child {
+.reveal section .grid-2 .col:last-child {
     float: right;
 }
 
-.reveal section .img-col-2:before,
-.reveal section .img-col-2:after {
+.reveal section .grid-2 .row:before,
+.reveal section .grid-2 .row:after {
     content: " "; /* 1 */
     display: table; /* 2 */
 }
 
-.reveal section .img-col-2:after {
+.reveal section .grid-2 .row:after {
     clear: both;
+}
+
+.reveal section .grid-2 img {
+    width: 100%;
 }
 
 .reveal section pre {

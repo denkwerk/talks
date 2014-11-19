@@ -80,20 +80,6 @@
                         <p>Heute:</p>
                         <img src="img/device-pile.jpg">
                     </section>
-                    <!--<section>
-                        <h2>Deshalb:</h2>
-                        <div class="column">
-                            <img class="normalImg" src="img/minions_not_responsive.png" alt="Not responsive" />
-                            <p class="copyright">© Universal Pictures</p>
-                            <p>Das Ergebnis, wenn man <span class="coral">nur ein Bild</span> verwendet welches auf die viewport Breite skaliert.</p>
-                        </div>
-                        <div class="column">
-                            <img class="normalImg" src="img/minions_responsive2.png" alt="Responsive" />
-                            <p class="copyright">© Universal Pictures</p>
-                            <p>Die Verwendung <span class="coral">mehrer Bilder</span>, die speziell für den viewport hinterlegt wurden.</p>
-                        </div>
-                    </section>-->
-
                 </section>
 
                 <section>
@@ -178,7 +164,7 @@
 
                 <section>
                     <section>
-                        <h2>eine mögliche Lösung?</h2>
+                        <h2>Eine mögliche Lösung?</h2>
                         <h4><a class="url-link" href="http://adaptive-images.com" target="_blank">adaptive-images.com</a></h4>
                         <ul>
                             <li>von Matt Willcox (Filament Group)</li>
@@ -187,7 +173,7 @@
                         </ul>
                     </section>
                     <section>
-                        <h2>Voraussetzung für adaptive-images</h2>
+                        <h2>Voraussetzung für Adaptive Images</h2>
                         <ul>
                             <li>der Einsatz von <span class="coral">PHP</span></li>
                             <li>der Einsatz von <span class="coral">Javascript</span></li>
@@ -219,15 +205,31 @@
                     </section>
 
                     <section>
-                        <p>tdb</p>
-                        <br>
-                        <ol>
-                            <li>srcset x</li>
-                            <li>srcset + sizes</li>
-                            <li>picture</li>
-                            <li>WebP</li>
-                        </ol>
-                    </section>
+                       <h2>Und als Fallback das JavaScript-Plugin <span class="coral">Picturefill</span></h2>
+                   </section>
+
+                   <section>
+                       <h3>Picturefill</h3>
+                       <br>
+                       <ul>
+                           <li class="fragment">stammt von der rennomierten <a href="http://www.filamentgroup.com/" target="_blank">Filement Group</a></li>
+                           <li class="fragment">steht derzeit in <span class="coral">Version 2.2</span> zur Verfügung</li>
+                           <li class="fragment"><span class="coral">basiert auf purem JavaScript</span> und ist nicht an jQuery oder eine andere Bibliothek gebunden</li>
+                           <li class="fragment">ist schlank (<span class="coral">7 KB</span>)</li>
+                           <li class="fragment">unterstützt die komplette <span class="coral">srcset</span> und <span class="coral">picture</span> Implementierungen, die wir Euch gleich vorstellen werden</li>
+                           <li class="fragment">bietet <span class="coral">hohe Abwärtskompatibilität sowie Standardkonformität</span> zu HTML5</li>
+                       </ul>
+
+                       <br><br>
+
+                       <p class="fragment">Download und Dokumentation:<br>
+                           <a href="http://scottjehl.github.io/picturefill/" target="_blank">http://scottjehl.github.io/picturefill/</a></span></p>
+
+                   </section>
+                </section>
+
+                <section>
+                    TODO: Lustiges Übergangsbild einfügen
                 </section>
 
                 <section>
@@ -235,34 +237,60 @@
                         <h3>1. Ansatz:</h3>
                         <h2>Bilder für <span class="coral">hochauflösende Displays</span></h2>
                         <p>mit srcset x</p>
+                    </section>
+
+                    <section>
+                        <h3>Wieso die Mühe machen?</h3>
                         <br>
-                        <p class="fragment">iPhone, iPad, Android & Windows Smartphones und Tablets, Retina MacBook, 4K Monitore, Retina iMac (und viele mehr in der Zukunft).</p>
+                        <p class="fragment">iPhone, iPad, Android & Windows Smartphones und Tablets, Retina MacBook, 4K Monitore, Retina iMac (<span class="coral">und viele mehr in der Zukunft</span>).</p>
                         <br>
                         <pre class="fragment">
                             <code class="html">
         <img srcset="img/x-large@2x.jpg 2x" src="img/x-large.jpg">
                             </code>
                         </pre>
-                        <p class="fragment">Retina-Bild liegt in der <span class="coral">doppelten Größe</span> vor, der Browser <span class="coral">skaliert</span> es auf <span class="coral">Normalgröße</span>, dadurch wird es auf Retina-Displays <span class="coral">scharf dargestellt</span>.</p>
                     </section>
 
                     <section>
-                        <p>Bei Retina-Bildern reicht eine <span class="coral">niedrige JPG-Qualität</span> aus</p>
+                        <h3>Bonus-Effekt</h3>
                         <br>
-                        <div class="img-col-2">
-                            <img src="../examples/img/x-large.jpg" class="fragment">
-                            <img src="../examples/img/x-large@2x.jpg" class="fragment">
+                        <p>Bei Retina-Bildern kann eine <span class="coral">niedrige JPG-Qualität</span> gewählt werden, <span class="coral">ohne</span> dass die stärkere Kompression <span class="coral">sichtbar</span> wird.</p>
+                        <br>
+                        <div class="grid-2">
+                            <div class="row">
+                                <div class="col fragment">
+                                    <small>Normales Bild:</small>
+                                    <br>
+                                    <img src="../examples/img/x-large.jpg">
+                                    <p class="fragment"><span class="semi-transparent">In Retina-Größe 370 KB</span></p>
+                                </div>
+                                <div class="col fragment">
+                                    <small>Retina Bild - scharf trotz niedriger Qualität:</small>
+                                    <br>
+                                    <img src="../examples/img/x-large@2x.jpg">
+                                    <p class="fragment"><span class="coral">Nur 14% größer</span></p>
+                                </div>
+                            </div>
                         </div>
+                    </section>
+
+                    <section>
+                        <h3>Zusammenfassung</h3>
+                        <br>
                         <ul>
-                            <li class="fragment">Die <a href="http://www.filamentgroup.com/lab/compressive-images.html" target="_blank">Compressive Images Technik</a> sorgt dafür, dass bei Retina-Bildern mehr als 50% Dateigröße eingespart werden kann</li>
-                            <li class="fragment">Durch Komprimierungstools, wie <a href="https://imageoptim.com/" target="_blank">ImageOptim</a>, können zusätzlich <span class="nowrap">5 - 10%</span> eingespart werden (auch als <a href="https://github.com/JamieMason/grunt-imageoptim" target="_blank">Grunt Plugin</a> erhältlich)</li>
+                            <li>Die Compressive Images Technik* sorgt dafür, dass bei JPG-Bildern <br>
+                                <span class="coral">mehr als 50%</span> Dateigröße <span class="coral">eingespart</span> werden kann.<br><br>
+                                    <small>Quelle: <a href="http://www.filamentgroup.com/lab/compressive-images.html" target="_blank">http://www.filamentgroup.com/lab/compressive-images.html</a></small><br><br></li>
+                                <li class="fragment">Durch Komprimierungstools wie <a href="https://imageoptim.com/" target="_blank">ImageOptim</a> können zusätzlich <span class="nowrap">5 - 10%</span> eingespart werden (auch als <a href="https://github.com/JamieMason/grunt-imageoptim" target="_blank">Grunt Plugin</a> erhältlich)</li>
                         </ul>
                     </section>
 
                     <section>
                         <h3>Vorteile von srcset x</h3>
+                        <br>
                         <ul>
-                            <li>Das Retina-Bild wird nur von Geräten mit Displays geladen, d.h. Bildschirme, die eine <span class="coral">Pixeldichte</span> von <span class="coral">2 oder höher</span> haben</li>
+                            <li>Das hochauflösende Bild wird nur von Retina-Geräten geladen,<br>
+                                d.h. Screens, die eine <span class="coral">Pixeldichte</span> von <span class="coral">2 oder höher</span> haben</li>
                             <li>Nativer <span class="coral">Browser-Support:</span> <br>Chrome 35, iOS 8, Chrome für Android 38, Safari 7.1 und Opera 25 <br>= 46% weltweit*</li>
                         </ul>
                         <br><br>
@@ -271,101 +299,209 @@
 
                     <section>
                         <h3>Nachteile von srcset x</h3>
+                        <br>
                         <ul>
-                            <li>Displaygröße wird <span class="coral">nicht berücksichtigt</span>, sondern nur die Pixeldichte</li>
-                            <li><span class="coral">Smartphone</span> und <span class="coral">Tablet</span> müssen ebenfalls das Desktop optimierte Bild herunterladen</li>
-                            <li>Nicht für <span class="coral">Responsive Webseiten</span> geeignet</li>
+                            <li>Keine Einsparung auf <span class="coral">kleineren Dispalys</span>, weil entweder die Retina oder normale Variante des <span class="coral">Desktop-Bildes</span> heruntergeladen wird</li>
+                            <li>Daher keine ausreichende Lösung für <span class="coral">Responsive Webseiten</span>*</li>
                         </ul>
+                        <br><br><br>
+                        <small class="fragment">* Webseiten mit mehreren Breakpoints</small>
                     </section>
                 </section>
 
                 <section>
                     <section>
-                        <h3>Ansatz 2:</h3>
+                        <h3>2. Ansatz:</h3>
                         <h2>Dem Browser mehrere <span class="coral">Bilder bereitstellen</span></h2>
                         <p>mit srcset w</p>
-                        <pre class="fragment">
-                            <code class="html">
-    <img srcset="
-        img/x-large.jpg 1280w,
-        img/large.jpg 1024w,
-        img/medium.jpg 840w" src="img/small.jpg">
-                            </code>
-                        </pre>
-                        <p class="fragment">Die <span class="coral">w</span> Angabe weist den Browser darauf hin, <span class="coral">in welchen Breiten</span> das Bild zur Verfügung steht, <span class="coral">ohne</span> das dieser alle Varianten <span class="coral">laden</span> muss.</p>
                     </section>
-
                     <section>
-                        <p>Das Attribut <span class="coral">sizes</span> wird zusätzlich verwendet, um dem Browser mitzuteilen, in <span class="coral">welcher Breite</span> das Bild auf der Seite eingesetzt wird.<br><br>
-                            Der Standardwert ist <span class="coral">100vw</span>, was 100% der Viewport-Breite entspricht.<br><br>
-                            Bei
-                        </p>
-                        <pre class="fragment">
-                            <code class="html">
-    <img srcset="
-        img/x-large.jpg 1280w,
-        img/large.jpg 1024w,
-        img/medium.jpg 840w,
-        img/small.jpg 420w" sizes="(min-width: 1024px)" src="img/small.jpg">
-                            </code>
-                        </pre>
-                    </section>
-
-                    <section>
-                        <h3>Vorteile von srcset w</h3>
+                        <h3>Beispiel</h3>
+                        <br>
+                        <p>Unsere Webseite hat <span class="coral">3 Breakpoints</span> <br>und eine Maximalbreite von <span class="coral">1280 Pixel</span>.</p>
+                        <br>
                         <ul>
-                            <li>Der Browser wählt das passende Bild anhand der <span class="coral">Breite</span> des <span class="coral">Viewports</span> aus</li>
-                            <li>Auf kleineren Displays wird ein <span class="coral">optimiertes Bild</span> heruntergeladen</li>
-                            <li>Einsparung von Ladezeit</li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h3>Nachteile von srcset w</h3>
-                        <ul>
-                            <li><span class="coral">Nativer Browser-Support:</span> <br>Momentan nur Chrome 38 und Opera 25 <br>= 22% weltweit*</li>
-                            <li>Kobination von <span class="coral">scrset w</span> und <span class="coral">x</span> nicht möglich, um Retina-Bilder mit geringer Qualität und niedriger Dateigröße auszuliefern </li>
-                            <li>Keine ideale Lösung für <span class="coral">Retina-Geräte</span></li>
+                            <li class="fragment">Mobile Breakpoint: <span class="coral">420 Pixel</span></li>
+                            <li class="fragment">Tablet: <span class="coral">840 Pixel</span></li>
+                            <li class="fragment">Desktop: <span class="coral">1280 Pixel</span></li>
                         </ul>
                         <br><br>
-                        <small>* Quelle: <a href="http://caniuse.com/#feat=srcset" target="_blank">http://caniuse.com/#feat=srcset</a> </small>
+                        <p class="fragment">In diesen Größen speichern wir unser Bild ab,<br> plus einer kleineren Desktop-Variante mit <span class="coral">1024 Pixel</span> Breite.</p>
+                    </section>
+                    <section>
+                        <p>Und so binden wir das Bild mit <span class="coral">srcset w</span> in den <span class="coral">4 Größen</span> ein:</p>
+                        <br>
+                        <pre>
+                            <code class="html">
+    <img srcset="
+        img/x-large.jpg 1280w,
+        img/large.jpg 1024w,
+        img/medium.jpg 840w
+        img/small.jpg 420w" src="img/small.jpg">
+                            </code>
+                        </pre>
+                        <p class="fragment">Die <span class="coral">w</span> Angabe weist den Browser darauf hin, <span class="coral">in welchen Breiten</span> das Bild zur Verfügung steht, <span class="coral">ohne</span> dass dieser die Bilder <span class="coral">herunterladen</span> muss.</p>
+                    </section>
+
+                    <section>
+                        <div class="grid-2">
+                            <div class="row">
+                                <div class="col">
+                                    <img src="../examples/img/x-large.jpg">
+                                </div>
+                                <div class="col">
+                                    <img src="../examples/img/large.jpg" class="fragment">
+                                    <small class="fragment">Einsparung 28%</small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <img src="../examples/img/medium.jpg" class="fragment">
+                                    <small class="fragment">Einsparung 45%</small>
+                                </div>
+                                <div class="col">
+                                    <img src="../examples/img/small.jpg" class="fragment">
+                                    <small class="fragment">Einsparung 80%</small>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <p>Falls das Bild nicht den kompletten Bildschirm einnehmen soll, kann zusätzlich das Attribut <span class="coral">sizes</span> verwendet werden, um dem Browser mitzuteilen, <span class="coral">in welcher Größe</span> das Bild eingesetzt wird.</p>
+
+                        <br>
+                        <br>
+
+                        <div class="fragment">
+                        <h3>Beispiel:</h3>
+                        <p>Ab einem Viewport von <span class="coral">1024 Pixel</span> <br>soll das Bild <span class="coral">nur noch halb so groß</span> dargestellt werden.</p>
+                        </div>
+
+                        <pre class="fragment">
+                            <code class="html">
+    <img srcset="img/large.jpg 1024w,
+                 img/medium.jpg 840w,
+                 img/small.jpg 420w" sizes="(min-width: 1280px) 640px,
+                                            (min-width: 1024px) 50vw,
+                                            100vw">
+                            </code>
+                        </pre>
+                    </section>
+
+                    <section>
+                        <h3>Zusammenfassung von srcset w und sizes</h3>
+                        <br>
+                        <ul>
+                            <li>Der Browser wählt das passende Bild anhand der <span class="coral">Viewport-Breite</span> und der <span class="coral">benötigten Größe</span> automatisch aus</li>
+                            <li>Standardmäßig ist <span class="coral">sizes</span> auf <span class="coral">100vw</span> eingestellt, was dem kompletten Viewport entspricht</li>
+                            <li>Auf kleineren Displays wird ein <span class="coral">optimiertes Bild</span> heruntergeladen</li>
+                            <li>In unserem ersten Beispiel <span class="coral">80% Einsparung</span> bei Smartphones</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Und was ist mit Retina-Optimierung?</h2>
+                        <br>
+                        <div class="fragment">
+                            <p>Die Kobination von <span class="coral">scrset w</span> und <span class="coral">x</span> ist <span class="coral">nicht möglich</span>*.
+                                <br><br>
+                                <small>* Quelle: <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#attr-img-srcset" target="_blank">https://html.spec.whatwg.org/multipage/embedded-content.html#attr-img-srcset</a></small></p>
+                        </div>
+                        <br>
+                        <p class="fragment">Somit können <span class="coral">keine</span> Retina-Grafiken <br>mit <span class="coral">optimierter JPG-Qualität</span> eingebunden werden.</p>
+                    </section>
+
+                    <section>
+                        <h3>Was macht der Browser stattdessen?</h3>
+                        <br>
+                        <p class="fragment">Auf Retina-Geräten führt <span class="coral">scrset w</span> dazu, dass sich <span class="coral">der Browser</span> die Version des Bildes sucht, die der <span class="coral">Retina-Größe</span> entspricht.</p>
+                        <br>
+                        <div class="grid-2">
+                            <div class="row">
+                                <div class="col">
+                                    <small class="fragment">Auf Smartphones wird nun dieses Bild verwendet:</small>
+                                    <br>
+                                    <img class="fragment" src="../examples/img/medium.jpg">
+                                </div>
+                                <div class="col">
+                                    <small class="fragment">Obwohl dieses Bild viel besser wäre:</small>
+                                    <br>
+                                    <img class="fragment" src="../examples/img/small@2x.jpg">
+                                    <br>
+                                    <p class="fragment">Einsparmöglichkeit: <span class="coral">59%</span></p>
+                                </div>
+                            </div>
+                        </div>
                     </section>
                 </section>
 
                 <section>
                     <section>
-                        <h2>allgemeines zu <br /><span class="coral">picturefill</span></h2>
+                        <h3 class="fragment">Unsere Lösung:</h3>
+                        <h2 class="fragment">Eine zusätzliche <span class="coral">Retina-Abfrage</span></h2>
+                        <p class="fragment">mit dem picture Element*</p>
+                        <br><br>
+                        <small class="fragment">* ohne zusätzliches JavaScript</small>
+                    </section>
+
+                    <section>
+                        <h3>Das picture Element</h3>
+                        <br>
+                        <ul>
+                            <li>wurde im September 2014 in Chrome 38, Chrome für Android und Opera 25 integriert, zusammen mit den bereits vorgestellten Features srcset w und sizes</li>
+                            <li>Damit können bereits weltweit 22%* darauf nativ zugreifen<br><br>
+                                <small>* Quelle: <a href="http://caniuse.com/#feat=picture" target="_blank">http://caniuse.com/#feat=picture</a></small><br></li>
+                            <li>Im Firefox sind picture, srcset und sizes sind ebenfalls seit Version 33 implementiert, müssen aber  vom Benutzer über die about:config aktiviert werden, da noch ein Bug beim Laden des richtigen Bildes vorhanden ist</li>
+                        </ul>
                     </section>
 
                     <section>
                         <ul>
-                            <li>ermöglicht den Einsatz im <span class="coral">HTML-Quelltext</span></li>
-                            <li class="fragment">arbeitet mit <span class="coral">div-Elementen</span></li>
-                            <li class="fragment">bietet damit <span class="coral">hohe Abwärtskompatibilität sowie Standardkonformität</span> zu HTML5</li>
-                            <li class="fragment"><span class="coral">basiert auf JavaScript</span> und ist nicht an jQuery oder eine andere Bibliothek gebunden</li>
+                            <li>Microsoft denkt darüber nach, die Implementierung im IE vorzunehmen</li>
+                            <li>Apple hat sich noch nicht geäußert, Safari unterstützt derzeit nur srcset x</li>
+                            <li>Für diese Browser ist noch das Picturefill-Plugin notwendig</li>
                         </ul>
-
+                        <br><br>
+                        <p>Weitere Infos zum Status der Implementierung: <a href="http://responsiveimages.org/#implementation" target="_blank">http://responsiveimages.org/#implementation</a>
                     </section>
 
                     <section>
-                        <p>Das macht diese Lösung schlank und schnell – was sich auch auf die Geschwindigkeit der Website positiv auswirkt, schließlich wird picturefill im <span class="coral">&lt;head&gt;</span>-Bereich eingebunden.</p>
-
+                        <p>Im <span class="coral">picture</span> Element können ebenfalls die srcset </p>
                         <pre>
                             <code class="html">
-        <script async="true" src="js/picturefill.js"></script>
+    <picture>
+        <source srcset="
+            img/x-large.jpg 1280w,
+            img/large.jpg 1024w,
+            img/medium.jpg 840w,
+            img/small.jpg 420w">
+        <img src="img/small.jpg">
+    </picture>
                             </code>
                         </pre>
-
-                        <span class="quelle">Download: <a class="url-link" href="https://github.com/scottjehl/picturefill" target="_blank">https://github.com/scottjehl/picturefill</a></span>
-
                     </section>
 
                     <section>
-                        <ul>
-                            <li><span class="coral">Chrome</span> bietet in der neusten Version bereits den nativen Browsersupport.</li>
-                            <li>Die neuste <span class="coral">Firefox</span> Version ermöglicht dies in den Einstellungen (about:config) zu aktivieren.</li>
-                        </ul>
+                        <pre>
+                            <code class="html">
+    <picture>
+        <source media="(min-resolution: 144dpi),
+                       (-webkit-min-device-pixel-ratio: 1.5)" srcset="
+            img/x-large@2x.jpg 2560w,
+            img/large@2x.jpg 2048w,
+            img/medium@2x.jpg 1680w,
+            img/small@2x.jpg 840w">
+        <source srcset="
+            img/x-large.jpg 1280w,
+            img/large.jpg 1024w,
+            img/medium.jpg 840w,
+            img/small.jpg 420w">
+        <img src="img/small.jpg">
+    </picture>
+                            </code>
+                        </pre>
                     </section>
-
                 </section>
 
                 <section>

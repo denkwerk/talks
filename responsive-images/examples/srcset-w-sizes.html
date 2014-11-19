@@ -3,7 +3,7 @@
     <head lang="en">
         <meta charset="UTF-8">
         <meta name=viewport content="width=device-width,initial-scale=1">
-        <title>srcset x - Responsive Images</title>
+        <title>srcset w + sizes - Responsive Images</title>
 
         <style type="text/css">
             body {
@@ -22,7 +22,19 @@
 
             .align-right {
                 text-align: right;
-                margin-right: 10px;
+            }
+
+            @media (min-width: 1024px) {
+                img {
+                    display: block;
+                    width: 50%;
+                    margin: 0 auto;
+                }
+
+                .align-right {
+                    text-align: center;
+                    margin-right: 10px;
+                }
             }
         </style>
 
@@ -31,7 +43,9 @@
 
     <body>
         <div class="site">
-            <img srcset="img/x-large@2x.jpg 2x" src="img/x-large.jpg">
+            <img
+                    srcset="img/large.jpg 1024w, img/medium.jpg 840w, img/small.jpg 420w"
+                    sizes="(min-width: 1280px) 640px, (min-width: 1024px) 50vw, 100vw">
 
             <p class="align-right">Image © Universal Studios</p>
         </div>

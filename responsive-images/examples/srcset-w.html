@@ -3,11 +3,12 @@
     <head lang="en">
         <meta charset="UTF-8">
         <meta name=viewport content="width=device-width,initial-scale=1">
-        <title>srcset and sizes - Responsive images</title>
+        <title>srcset w - Responsive Images</title>
 
         <style type="text/css">
             body {
                 margin: 0;
+                font-family: Helvetica, Arial, sans-serif;
             }
 
             .site {
@@ -17,6 +18,11 @@
 
             img {
                 width: 100%;
+            }
+
+            .align-right {
+                text-align: right;
+                margin-right: 10px;
             }
         </style>
 
@@ -28,8 +34,8 @@
             <img
                     srcset="img/x-large.jpg 1280w, img/large.jpg 1024w, img/medium.jpg 840w, img/small.jpg 420w"
                     src="img/small.jpg">
-        </div>
 
-        <script src="js/picturefill.min.js"></script>
+            <p class="align-right">Image © Universal Studios</p>
+        </div>
     </body>
 </html>
