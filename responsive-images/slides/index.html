@@ -240,84 +240,95 @@
                 </section>
 
                 <section>
+<<<<<<< HEAD
+                    <p>Es gibt verschiedene Ansätze, wie man Responsive Images mit HTML inmplementieren kann</p>
+=======
                     <img class="normalImg" src="img/minion-lunch.png" alt="Minion Lunch" />
 					<h3 class="lunch-text">Und jetzt geht es ans Eingemachte</h3>
+>>>>>>> FETCH_HEAD
                 </section>
 
                 <section>
                     <section>
-                        <h3>1. Ansatz:</h3>
-                        <h2>Bilder für <span class="coral">hochauflösende Displays</span></h2>
-                        <p>mit srcset x</p>
+                        <h3>1. Möglichkeit:</h3>
+                        <h1><span class="coral">Retina-Optimierung</span></h1>
+                        <h2>mit srcset x</h2>
                     </section>
 
                     <section>
-                        <h3>Wieso die Mühe machen?</h3>
+                        <h3>Wieso macht Retina-Optimierung Sinn?</h3>
                         <br>
-                        <p class="fragment">iPhone, iPad, Android & Windows Smartphones und Tablets, Retina MacBook, 4K Monitore, Retina iMac (<span class="coral">und viele mehr in der Zukunft</span>).</p>
+                        <p>Auf hochauflösenden Displays werden normale Bilder <span class="coral">unscharf</span> dargestellt und die meisten <span class="coral">Smartphones</span> und <span class="coral">Tablets</span> haben mittlerweile Retina-Bildschirme.</p>
                         <br>
-                        <pre class="fragment">
+                        <ul>
+                            <li class="fragment">iPhone, iPad</li>
+                            <li class="fragment">viele Android & Windows Smartphones und Tablets</li>
+                            <li class="fragment">Retina MacBook Pro, 4K Monitore, Retina iMac 5K</li>
+                        </ul
+                        <br><br>
+                        <p class="fragment">... <span class="coral">und viele mehr in der Zukunft</span></p>
+                    </section>
+                    <section>
+                        <h3>So wirds gemacht</h3>
+                        <pre>
                             <code class="html">
         <img srcset="img/x-large@2x.jpg 2x" src="img/x-large.jpg">
                             </code>
                         </pre>
+
+                        <ul>
+                            <li>Wir speichern das Retina-Bild in der <span class="coral">doppelten Breite und Höhe</span> ab</li>
+                            <li class="fragment">Im HTML geben wir dem Bild das <span class="coral">scrset Attribut</span> und den <span class="coral">Auflösungsoperator 2x</span></li>
+                            <li class="fragment">Der Browser erkennt <span class="coral">automatisch</span>, ob wir einen Retina-Bildschirm haben und lädt das <span class="coral">Retina-Bild</span></li>
+
+                            <li class="fragment">Normale (nicht Retina) Displays laden das <span class="coral">Standard-Bild</span></li>
+                        </ul>
                     </section>
 
                     <section>
-                        <h3>Bonus-Effekt</h3>
+                        <h1>Easy <span class="coral">:</span>)</h1>
+                        <br><br><br>
+                        <p class="fragment">
+                            Und der <span class="coral">Browser-Support</span> kann sich auch sehen lassen: <br>
+                            Chrome 35, Chrome für Android 38, Safari 7.1, iOS 8 und Opera 25 <br>= <span class="coral">46% Abdeckung weltweit</span>*
+                            <br><br><br>
+                            <small>* Quelle: <a href="http://caniuse.com/#feat=srcset" target="_blank">http://caniuse.com/#feat=srcset</a></small>
+                        </p>
+                    </section>
+                    <section>
+                        <p>Bei Retina-Grafiken lässt sich zusätzlich noch <span class="coral">Dateigröße einsparen</span>.</p>
                         <br>
-                        <p>Bei Retina-Bildern kann eine <span class="coral">niedrige JPG-Qualität</span> gewählt werden, <span class="coral">ohne</span> dass die stärkere Kompression <span class="coral">sichtbar</span> wird.</p>
                         <br>
                         <div class="grid-2">
                             <div class="row">
-                                <div class="col fragment">
-                                    <small>Normales Bild:</small>
-                                    <br>
+                                <div class="col">
+                                    <h3>Normales Bild</h3>
                                     <img src="../examples/img/x-large.jpg">
-                                    <p class="fragment"><span class="semi-transparent">In Retina-Größe 370 KB</span></p>
+                                    <p ><span class="semi-transparent">In Retina-Größe 370 KB</span></p>
                                 </div>
-                                <div class="col fragment">
-                                    <small>Retina Bild - scharf trotz niedriger Qualität:</small>
-                                    <br>
+                                <div class="col">
+                                    <h3>Retina-Bild</h3>
                                     <img src="../examples/img/x-large@2x.jpg">
-                                    <p class="fragment"><span class="coral">Nur 14% größer</span></p>
+                                    <p ><span class="coral">Nur 14% größer</span></p>
                                 </div>
                             </div>
                         </div>
                     </section>
 
                     <section>
-                        <h3>Zusammenfassung</h3>
-                        <br>
-                        <ul>
-                            <li>Die Compressive Images Technik* sorgt dafür, dass bei JPG-Bildern <br>
-                                <span class="coral">mehr als 50%</span> Dateigröße <span class="coral">eingespart</span> werden kann.<br><br>
-                                    <small>Quelle: <a href="http://www.filamentgroup.com/lab/compressive-images.html" target="_blank">http://www.filamentgroup.com/lab/compressive-images.html</a></small><br><br></li>
-                                <li class="fragment">Durch Komprimierungstools wie <a href="https://imageoptim.com/" target="_blank">ImageOptim</a> können zusätzlich <span class="nowrap">5 - 10%</span> eingespart werden (auch als <a href="https://github.com/JamieMason/grunt-imageoptim" target="_blank">Grunt Plugin</a> erhältlich)</li>
-                        </ul>
-                    </section>
-
-                    <section>
-                        <h3>Vorteile von srcset x</h3>
-                        <br>
-                        <ul>
-                            <li>Das hochauflösende Bild wird nur von Retina-Geräten geladen,<br>
-                                d.h. Screens, die eine <span class="coral">Pixeldichte</span> von <span class="coral">2 oder höher</span> haben</li>
-                            <li>Nativer <span class="coral">Browser-Support:</span> <br>Chrome 35, iOS 8, Chrome für Android 38, Safari 7.1 und Opera 25 <br>= 46% weltweit*</li>
-                        </ul>
+                        <h1>Klingt seltsam</h1>
                         <br><br>
-                        <small>* Quelle: <a href="http://caniuse.com/#feat=srcset" target="_blank">http://caniuse.com/#feat=srcset</a></small>
-                    </section>
-
-                    <section>
-                        <h3>Nachteile von srcset x</h3>
+                        <p>Dadurch, dass das Retina-Bild vom <span class="coral">Browser</span> auf <span class="coral">Normalgröße skaliert</span> wird, kann eine <span class="coral">JPG-Qualität</span> von <span class="coral">30%</span> oder weniger in Photoshop ausgewählt werden, ohne dass dies zu sichtbaren Einbußen führt.</p>
                         <br>
-                        <ul>
-                            <li>Keine Einsparung auf <span class="coral">kleineren Dispalys</span>, weil entweder die Retina oder normale Variante des <span class="coral">Desktop-Bildes</span> heruntergeladen wird</li>
-                            <li>Daher keine ausreichende Lösung für <span class="coral">Responsive Webseiten</span>*</li>
+
+                        <p>Weitere Infos zu Compressive Images:<br>
+                            <a href="http://www.filamentgroup.com/lab/compressive-images.html" target="_blank">http://www.filamentgroup.com/lab/compressive-images.html</a>
+                        </p>
+
+                        <br>
+
+                        <p>Zusätzlich kann mit Komprimierungstools wie <a href="https://imageoptim.com/" target="_blank">ImageOptim</a> noch einmal <span class="nowrap">5 - 10%</span> eingespart werden (auch als <a href="https://github.com/JamieMason/grunt-imageoptim" target="_blank">Grunt Plugin</a> erhältlich)</p>
                         </ul>
-                        <br><br><br>
-                        <small class="fragment">* Webseiten mit mehreren Breakpoints</small>
                     </section>
                 </section>
 
@@ -434,7 +445,7 @@
                     </section>
                 </section>
 
-                <section></section>
+                <section>Das wars?</section>
 
                 <section>
                     <section>
