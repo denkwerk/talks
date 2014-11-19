@@ -205,19 +205,20 @@
                     </section>
 
                     <section>
-                       <h2>Und als Fallback das JavaScript-Plugin <span class="coral">Picturefill</span></h2>
+                       <h2>Und als Fallback das JavaScript-Plugin<br>
+                           <span class="coral">Picturefill</span></h2>
                    </section>
 
                    <section>
                        <h3>Picturefill</h3>
                        <br>
                        <ul>
-                           <li class="fragment">stammt von der rennomierten <a href="http://www.filamentgroup.com/" target="_blank">Filement Group</a></li>
+                           <li class="fragment">stammt von der rennomierten <a href="http://www.filamentgroup.com/" target="_blank">Filament Group</a></li>
                            <li class="fragment">steht derzeit in <span class="coral">Version 2.2</span> zur Verfügung</li>
                            <li class="fragment"><span class="coral">basiert auf purem JavaScript</span> und ist nicht an jQuery oder eine andere Bibliothek gebunden</li>
                            <li class="fragment">ist schlank (<span class="coral">7 KB</span>)</li>
-                           <li class="fragment">unterstützt die komplette <span class="coral">srcset</span> und <span class="coral">picture</span> Implementierungen, die wir Euch gleich vorstellen werden</li>
                            <li class="fragment">bietet <span class="coral">hohe Abwärtskompatibilität sowie Standardkonformität</span> zu HTML5</li>
+                           <li class="fragment">unterstützt die komplette <span class="coral">srcset</span> und <span class="coral">picture</span> Implementierungen, die wir Euch gleich vorstellen werden</li>
                        </ul>
 
                        <br><br>
@@ -436,9 +437,11 @@
                     </section>
                 </section>
 
+                <section></section>
+
                 <section>
                     <section>
-                        <h3 class="fragment">Unsere Lösung:</h3>
+                        <h3>Unsere Lösung:</h3>
                         <h2 class="fragment">Eine zusätzliche <span class="coral">Retina-Abfrage</span></h2>
                         <p class="fragment">mit dem picture Element*</p>
                         <br><br>
@@ -452,42 +455,75 @@
                             <li>wurde im September 2014 in Chrome 38, Chrome für Android und Opera 25 integriert, zusammen mit den bereits vorgestellten Features srcset w und sizes</li>
                             <li>Damit können bereits weltweit 22%* darauf nativ zugreifen<br><br>
                                 <small>* Quelle: <a href="http://caniuse.com/#feat=picture" target="_blank">http://caniuse.com/#feat=picture</a></small><br></li>
-                            <li>Im Firefox sind picture, srcset und sizes sind ebenfalls seit Version 33 implementiert, müssen aber  vom Benutzer über die about:config aktiviert werden, da noch ein Bug beim Laden des richtigen Bildes vorhanden ist</li>
+                            <li>In Firefox sind picture, srcset und sizes ebenfalls seit Version 33 implementiert, müssen aber  vom Benutzer über die about:config aktiviert werden, da noch <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1067345" target="_blank">ein Bug</a> beim Laden des richtigen Bildes vorhanden ist</li>
                         </ul>
                     </section>
 
                     <section>
                         <ul>
-                            <li>Microsoft denkt darüber nach, die Implementierung im IE vorzunehmen</li>
+                            <li>Microsoft denkt übe reine Implementierung im IE nach</li>
                             <li>Apple hat sich noch nicht geäußert, Safari unterstützt derzeit nur srcset x</li>
-                            <li>Für diese Browser ist noch das Picturefill-Plugin notwendig</li>
+                            <li>Für diese Browser kommt Picturefill.js zum Einsatz</li>
                         </ul>
                         <br><br>
                         <p>Weitere Infos zum Status der Implementierung: <a href="http://responsiveimages.org/#implementation" target="_blank">http://responsiveimages.org/#implementation</a>
                     </section>
 
                     <section>
-                        <p>Im <span class="coral">picture</span> Element können ebenfalls die srcset </p>
+                        <p><span class="coral">picture</span> basiert ebenfalls auf der <span class="coral">srcset</span> Logik,<br>man kann aber <span class="coral">zusätzliche Bedingungen</span> angeben.</p>
+                        <br>
+                        <p>Damit lassen wir weiterhin den <span class="coral">Browser entscheiden</span>, welche <span class="coral">Bildgröße</span> für den aktuellen <span class="coral">Viewport</span> geeignet ist, auf Retina-Geräten geben wir ihm aber nur die <span class="coral">optimierten JPGs</span> zur Auswahl.</p>
+                    </section>
+                    <section>
+                        <p>Unser vorheriges <span class="coral">srcset</span> Beispiel</p>
+
                         <pre>
                             <code class="html">
-    <picture>
-        <source srcset="
-            img/x-large.jpg 1280w,
-            img/large.jpg 1024w,
-            img/medium.jpg 840w,
-            img/small.jpg 420w">
-        <img src="img/small.jpg">
-    </picture>
+    <img srcset="
+        img/x-large.jpg 1280w,
+        img/large.jpg 1024w,
+        img/medium.jpg 840w
+        img/small.jpg 420w" src="img/small.jpg">
                             </code>
                         </pre>
+
+                        <div class="fragment" style="margin-top: -20px">
+                            funktioniert auch als <span class="coral">picture</span> Element
+
+                            <pre>
+                                <code class="html">
+        <picture>
+            <source srcset="
+                img/x-large.jpg 1280w,
+                img/large.jpg 1024w,
+                img/medium.jpg 840w,
+                img/small.jpg 420w">
+            <img src="img/small.jpg">
+        </picture>
+                                </code>
+                            </pre>
+                        </div>
                     </section>
 
                     <section>
-                        <pre>
+                        <h3>picture <span class="coral">source</span></h3>
+                        <br>
+                        <ul>
+                            <li>Über das Attribut <span class="coral">media</span> können wir Bedingungen mit <span class="coral">Media Queries</span> definieren</li>
+                            <li>Es können <span class="coral">beliebig viele source Tags</span> eingegeben werden, der Browser analysiert sie von <span class="coral">der Reihe nach</span></li>
+                            <li>Sobald eine <span class="coral">Bedingung zutrifft</span>, wird das entsprechende <span class="coral">source</span> verwendet</li>
+                        </ul>
+                    </section>
+
+                    <section>
+
+                        <p>Für die <span class="coral">Retina-Varianten</span> unseres Bildes<br>
+                            fügen wir nun ein zusätzliches <span class="coral">source Tag</span> ein:</p>
+                        <pre class="fragment">
                             <code class="html">
     <picture>
-        <source media="(min-resolution: 144dpi),
-                       (-webkit-min-device-pixel-ratio: 1.5)" srcset="
+        <source media="(min-resolution: 192dpi),
+                       (-webkit-min-device-pixel-ratio: 2)" srcset="
             img/x-large@2x.jpg 2560w,
             img/large@2x.jpg 2048w,
             img/medium@2x.jpg 1680w,
@@ -505,7 +541,7 @@
                 </section>
 
                 <section>
-                    <h2>weitere Quellen:</h2>
+                    <h2>Weitere Quellen:</h2>
                     <p>
                         <a class="url-link" href="http://responsiveimages.org/" target="_blank">http://responsiveimages.org/</a>
                     </p>
