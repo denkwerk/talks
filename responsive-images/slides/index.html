@@ -454,18 +454,18 @@
                         <h3>Das picture Element</h3>
                         <br>
                         <ul>
-                            <li>wurde im September 2014 in Chrome 38, Chrome für Android und Opera 25 integriert, zusammen mit den bereits vorgestellten Features srcset w und sizes</li>
-                            <li>Damit können bereits weltweit 22%* darauf nativ zugreifen<br><br>
+                            <li>wurde im <span class="coral">September 2014</span> in <span class="coral">Chrome 38</span>, <span class="coral">Chrome</span> für <span class="coral">Android</span> und <span class="coral">Opera 25</span> integriert, zusammen mit den bereits vorgestellten Features srcset w und sizes</li>
+                            <li>Damit können bereits <span class="coral">weltweit 22%</span>* darauf nativ zugreifen<br><br>
                                 <small>* Quelle: <a href="http://caniuse.com/#feat=picture" target="_blank">http://caniuse.com/#feat=picture</a></small><br></li>
-                            <li>In Firefox sind picture, srcset und sizes ebenfalls seit Version 33 implementiert, müssen aber  vom Benutzer über die about:config aktiviert werden, da noch <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1067345" target="_blank">ein Bug</a> beim Laden des richtigen Bildes vorhanden ist</li>
+                            <li>In <span class="coral">Firefox</span> sind picture, srcset und sizes ebenfalls seit <span class="coral">Version 33</span> implementiert, müssen aber  vom Benutzer über die about:config aktiviert werden, da noch <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1067345" target="_blank">ein Bug</a> beim Laden des richtigen Bildes vorhanden ist</li>
                         </ul>
                     </section>
 
                     <section>
                         <ul>
-                            <li>Microsoft denkt übe reine Implementierung im IE nach</li>
-                            <li>Apple hat sich noch nicht geäußert, Safari unterstützt derzeit nur srcset x</li>
-                            <li>Für diese Browser kommt Picturefill.js zum Einsatz</li>
+                            <li><span class="coral">Microsoft</span> denkt über eine Implementierung im <span class="coral">IE</span> nach</li>
+                            <li><span class="coral">Apple</span> hat sich noch nicht geäußert, <span class="coral">Safari</span> unterstützt derzeit nur srcset x</li>
+                            <li>Für diese Browser kommt <span class="coral">Picturefill.js</span> zum Einsatz</li>
                         </ul>
                         <br><br>
                         <p>Weitere Infos zum Status der Implementierung: <a href="http://responsiveimages.org/#implementation" target="_blank">http://responsiveimages.org/#implementation</a>
@@ -474,7 +474,7 @@
                     <section>
                         <p><span class="coral">picture</span> basiert ebenfalls auf der <span class="coral">srcset</span> Logik,<br>man kann aber <span class="coral">zusätzliche Bedingungen</span> angeben.</p>
                         <br>
-                        <p>Damit lassen wir weiterhin den <span class="coral">Browser entscheiden</span>, welche <span class="coral">Bildgröße</span> für den aktuellen <span class="coral">Viewport</span> geeignet ist, auf Retina-Geräten geben wir ihm aber nur die <span class="coral">optimierten JPGs</span> zur Auswahl.</p>
+                        <p>Damit lassen wir weiterhin den Browser entscheiden, welche <span class="coral">Bildgröße</span> für den aktuellen <span class="coral">Viewport</span> geeignet ist, auf Retina-Geräten geben wir ihm aber nur die <span class="coral">optimierten JPGs</span> zur Auswahl.</p>
                     </section>
                     <section>
                         <p>Unser vorheriges <span class="coral">srcset</span> Beispiel</p>
@@ -508,11 +508,12 @@
                     </section>
 
                     <section>
-                        <h3>picture <span class="coral">source</span></h3>
+                        <h3>Wie wir picture source nutzen</h3>
                         <br>
                         <ul>
                             <li>Über das Attribut <span class="coral">media</span> können wir Bedingungen mit <span class="coral">Media Queries</span> definieren</li>
-                            <li>Es können <span class="coral">beliebig viele source Tags</span> eingegeben werden, der Browser analysiert sie von <span class="coral">der Reihe nach</span></li>
+                            <li>Es können <span class="coral">beliebig viele source Tags</span> definiert werden</li>
+                            <li>Der Browser analysiert sie <span class="coral">der Reihe nach</span></li>
                             <li>Sobald eine <span class="coral">Bedingung zutrifft</span>, wird das entsprechende <span class="coral">source</span> verwendet</li>
                         </ul>
                     </section>
@@ -520,7 +521,7 @@
                     <section>
 
                         <p>Für die <span class="coral">Retina-Varianten</span> unseres Bildes<br>
-                            fügen wir nun ein zusätzliches <span class="coral">source Tag</span> ein:</p>
+                            fügen wir ein zusätzliches <span class="coral">source Tag</span> ein:</p>
                         <pre class="fragment">
                             <code class="html">
     <picture>
@@ -539,6 +540,21 @@
     </picture>
                             </code>
                         </pre>
+                    </section>
+
+                    <section>
+                        <h3>Der Retina Media Query</h3>
+                        <pre>
+                            <code class="html">
+        <source media="(min-resolution: 192dpi),
+                       (-webkit-min-device-pixel-ratio: 2)">
+                            </code>
+                        </pre>
+
+                        <ul class="fragment">
+                            <li><span class="coral">min-reolution dpi</span> wird von allen Brwosern bis auf Safari unterstützt</li>
+                        </ul>
+                        <p></p>
                     </section>
                 </section>
 
