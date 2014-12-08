@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Responsive Images</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+        <link rel="stylesheet" href="css/custom-styles.css">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+        <script async="true" src="js/picturefill.js"></script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Responsive Images</h1>
+					<p>
+						<p>
+                            von <span class="coral">Sebastian Huber</span> & <span class="coral">Simon Koch</span>
+                        </p>
+					</p>
+                    <img src="img/minions_responsive.png"
+                         srcset="   img/mobile/minions_responsive@mobile.png 320w,
+                                    img/mobile/minions_responsive@mobile.png 480w,
+                                    img/tablet/minions_responsive@tablet.png 768w,
+                                    img/tablet/minions_responsive@tablet.png 1024w,
+                                    img/minions_responsive.png 1280w"
+                         sizes="90vw"
+                         alt="Minions responsive">
+                    <p class="copyright">© Universal Pictures</p>
+				</section>
+
+                <section>
+                    <section>
+                        <h2>Ein Rückblick</h2>
+                    </section>
+                    <section>
+                        <p>Früher war alles einfach ...</p>
+                        <img src="img/win95-pc.jpg">
+                        <pre class="fragment">
+                            <code class="html">
+    <img src="img/win95-pc.jpg" alt="YOLO">
+                            </code>
+                        </pre>
+                    </section>
+                    <section>
+                        <p>Heute:</p>
+                        <img class="normalImg" src="img/too-many-devices.png" alt="Too many devices" />
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <img class="normalImg" src="img/diagram_website.png"
+                             srcset="   img/mobile/diagram_website@mobile.png 320w,
+                                        img/mobile/diagram_website@mobile.png 480w,
+                                        img/tablet/diagram_website@tablet.png 768w,
+                                        img/tablet/diagram_website@tablet.png 1024w,
+                                        img/diagram_website.png 1280w"
+                             sizes="90vw"
+                             alt="Diagram">
+                        <span class="quelle">Quelle: <a class="url-link" href="http://httparchive.org/interesting.php?a=All&l=Oct%2015%202014&s=All">http://httparchive.org/interesting.php?a=All&l=Oct%2015%202014&s=All</a></span>
+                    </section>
+                </section>
+                <section>
+                    <h1 class="coral">72%</h1>
+                    <h3>der responsive Websites schicken etwa <br /><span class="coral">die Gleiche Datenmenge an Mobile & Desktop Nutzer</span></h3>
+                    <span class="quelle">Quelle: <a class="url-link" href="http://www.guypo.com/?p=3374" target="_blank">http://www.guypo.com/?p=3374</a></span>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Es lohnt sich zu <span class="coral">optimieren!</span></h2>
+                    </section>
+                    <section>
+                        <div class="img-container">
+                            <img class="normalImg" src="img/minion_car_1024x576.png" alt="Desktop" />
+                            <p class="copyright">© Universal Pictures</p>
+                            <br>
+                            <p><span class="coral">Desktop: </span>1024x576 Pixel</p>
+                            <p class="coral">264 KB</p>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="img-container">
+                            <img src="img/tablet/minion_car_768x432.png" alt="Tablet" />
+                            <p class="copyright">© Universal Pictures</p>
+                            <br>
+                            <p><span class="coral">Tablet: </span>768x432 Pixel</p>
+                            <p><strike class="semi-transparent">264 KB</strike> <span class="coral">177 KB</span></p>
+                            <p>33% Einsparung</p>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="img-container">
+                            <img class="normalImg" src="img/mobile/minion_car_320x180.png" alt="Mobile" />
+                            <p class="copyright">© Universal Pictures</p>
+                            <br>
+                            <p><span class="coral">Mobile: </span>320x180 Pixel</p>
+                            <strike class="semi-transparent">264 KB</strike> <span class="coral"> 41,8 KB</span></p>
+                            <p>85% Einsparung</p>
+                        </div>
+                    </section>
+                    <section id="fragments">
+                        <ul>
+                            <li>Bilder werden mit <span class="coral">unterschiedlicher Auflösung</span> für normale und hochauflösende Displays ausgegeben</li>
+                            <li class="fragment">Bilder innerhalb eines flexiblen Web-Layouts (responsive Layout) werden mit unterschiedlicher Abmessung für verschiedene Viewport-Größen ausgegeben</li>
+                            <li class="fragment"><span class="coral">spart Ressourcen</span> (Beispiel bild.de -> <span class="coral">3,7 MB</span> reine Bilder unter Desktop zu <span class="coral">288 kb</span> für mobile)</li>
+                            <li class="fragment">da <span class="coral">keine unnötig großen Bilddateien</span> geladen werden</li>
+                            <li class="fragment">somit lädt die Seite <span class="coral">schneller</span></li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Eine bereits vorhandene Lösung</h2>
+                        <h4><a class="url-link" href="http://adaptive-images.com" target="_blank">adaptive-images.com</a></h4>
+                        <ul>
+                            <li>von Matt Willcox (Filament Group)</li>
+                            <li>dieses PHP-basierte Skript liefert je nach Device das passende Bild aus</li>
+                            <li>dazu kommen bestehende Media Queries nach dem Mobile-first-Prinzip zum Einsatz</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Voraussetzung für Adaptive Images</h2>
+                        <ul>
+                            <li>der Einsatz von <span class="coral">PHP</span></li>
+                            <li class="fragment">der Einsatz von <span class="coral">Javascript</span></li>
+                            <li class="fragment">der Einsatz einer <span class="coral">.htaccess-Datei</span></li>
+                            <li class="fragment">der Einsatz von <span class="coral">Cookies</span></li>
+                        </ul>
+                    </section>
+
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Ab sofort <span class="coral">hilft der Browser</span></h2>
+                    </section>
+                    <section>
+                        <img src="img/html5-logo.png">
+                    </section>
+
+                    <section>
+                       <h2>Und als Fallback das JavaScript-Plugin<br>
+                           <span class="coral">Picturefill</span></h2>
+                   </section>
+
+                   <section>
+                       <h3>Picturefill</h3>
+                       <br>
+                       <ul>
+                           <li>stammt von der renommierten <a href="http://www.filamentgroup.com/" target="_blank">Filament Group</a></li>
+                           <li class="fragment">steht derzeit in <span class="coral">Version 2.2</span> zur Verfügung</li>
+                           <li class="fragment"><span class="coral">basiert auf purem JavaScript</span> und ist nicht an jQuery oder eine andere Bibliothek gebunden</li>
+                           <li class="fragment">ist schlank (<span class="coral">7 KB</span>)</li>
+                           <li class="fragment">bietet <span class="coral">hohe Abwärtskompatibilität sowie Standardkonformität</span> zu HTML5</li>
+                           <li class="fragment">unterstützt die komplette <span class="coral">srcset</span> und <span class="coral">picture</span> Implementierungen, die wir Euch gleich vorstellen werden</li>
+                       </ul>
+
+                       <br><br>
+
+                       <p class="fragment">Download und Dokumentation:<br>
+                           <a href="http://scottjehl.github.io/picturefill/" target="_blank">http://scottjehl.github.io/picturefill/</a></span></p>
+
+                   </section>
+                </section>
+
+                <section>
+                    <img class="normalImg" src="img/minion-lunch.png" alt="Minion Lunch" />
+					<h3 class="lunch-text">Und jetzt geht es ans Eingemachte</h3>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>1. Möglichkeit:</h3>
+                        <h1><span class="coral">Retina-Optimierung</span></h1>
+                        <h2>mit srcset x</h2>
+                    </section>
+
+                    <section>
+                        <h3>Wieso macht Retina-Optimierung Sinn?</h3>
+                        <br>
+                        <p>Auf hochauflösenden Displays werden normale Bilder <span class="coral">unscharf</span> dargestellt und die meisten <span class="coral">Smartphones</span> und <span class="coral">Tablets</span> haben mittlerweile Retina-Bildschirme.</p>
+                        <br>
+                        <ul>
+                            <li class="fragment">iPhone, iPad</li>
+                            <li class="fragment">viele Android & Windows Smartphones und Tablets</li>
+                            <li class="fragment">Retina MacBook Pro, 4K Monitore, Retina iMac 5K</li>
+                        </ul>
+                        <br><br>
+                        <p class="fragment">... <span class="coral">und viele mehr in der Zukunft</span></p>
+                    </section>
+                    <section>
+                        <h3>So wirds gemacht</h3>
+                        <pre>
+                            <code class="html">
+        <img srcset="img/x-large@2x.jpg 2x" src="img/x-large.jpg">
+                            </code>
+                        </pre>
+
+                        <ul>
+                            <li>Wir speichern das Retina-Bild in der <span class="coral">doppelten Breite und Höhe</span> ab</li>
+                            <li class="fragment">Im HTML geben wir dem Bild das <span class="coral">srcset Attribut</span> und den <span class="coral">Auflösungsoperator 2x</span></li>
+                            <li class="fragment">Der Browser erkennt <span class="coral">automatisch</span>, ob wir einen Retina-Bildschirm haben und lädt das <span class="coral">Retina-Bild</span></li>
+
+                            <li class="fragment">Normale (nicht Retina) Displays laden das <span class="coral">Standard-Bild</span></li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h1>Easy <span class="coral">:</span>)</h1>
+                        <br><br><br>
+                        <p class="fragment">
+                            Und der <span class="coral">Browser-Support</span> kann sich auch sehen lassen: <br>
+                            Chrome 35, Chrome für Android 38, Safari 7.1, iOS 8 und Opera 25 <br>= <span class="coral">46% Abdeckung weltweit</span>*
+                            <br><br><br>
+                            <small>* Quelle: <a href="http://caniuse.com/#feat=srcset" target="_blank">http://caniuse.com/#feat=srcset</a></small>
+                        </p>
+                    </section>
+                    <section>
+                        <p>Bei Retina-Grafiken lässt sich zusätzlich noch <span class="coral">Dateigröße einsparen</span>.</p>
+                        <br>
+                        <br>
+                        <div class="grid-2">
+                            <div class="row">
+                                <div class="col">
+                                    <h3>Normales Bild</h3>
+                                    <img src="../examples/img/x-large.jpg">
+                                    <p ><span class="semi-transparent">In Retina-Größe 370 KB</span></p>
+                                </div>
+                                <div class="col">
+                                    <h3>Retina-Bild</h3>
+                                    <img src="../examples/img/x-large@2x.jpg">
+                                    <p ><span class="coral">Nur 14% größer</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h1>Klingt seltsam</h1>
+                        <br><br>
+                        <p>Dadurch, dass das Retina-Bild vom <span class="coral">Browser</span> auf <span class="coral">Normalgröße skaliert</span> wird, kann eine <span class="coral">JPG-Qualität</span> von <span class="coral">30%</span> oder weniger in Photoshop ausgewählt werden, ohne dass dies zu sichtbaren Einbußen führt.</p>
+                        <br>
+
+                        <p>Weitere Infos zu Compressive Images:<br>
+                            <a href="http://www.filamentgroup.com/lab/compressive-images.html" target="_blank">http://www.filamentgroup.com/lab/compressive-images.html</a>
+                        </p>
+
+                        <br>
+
+                        <p>Zusätzlich kann mit Komprimierungstools wie <a href="https://imageoptim.com/" target="_blank">ImageOptim</a> noch einmal <span class="nowrap">5 - 10%</span> eingespart werden (auch als <a href="https://github.com/JamieMason/grunt-imageoptim" target="_blank">Grunt Plugin</a> erhältlich)</p>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>2. Möglichkeit:</h3>
+                        <h1>Dem Browser <span class="coral">mehrere Bilder bereitstellen</span></h1>
+                        <h2>mit srcset w</h2>
+                    </section>
+                    <section>
+                        <h3>Beispiel</h3>
+                        <br>
+                        <p>Unsere Webseite hat <span class="coral">4 Breakpoints</span> <br>und eine Maximalbreite von <span class="coral">1280 Pixel</span>.</p>
+                        <br>
+                        <ul>
+                            <li>Mobile Breakpoint: <span class="coral">420 Pixel</span></li>
+                            <li>Tablet: <span class="coral">840 Pixel</span></li>
+                            <li>Desktop klein: <span class="coral">1024 Pixel</span></li>
+							<li>Desktop groß: <span class="coral">1280 Pixel</span></li>
+                        </ul>
+                        <br><br>
+                        <p>In diesen Größen speichern wir unser Bild ab.</p>
+                    </section>
+                    <section>
+                        <p>Und so binden wir das Bild mit <span class="coral">srcset w</span> in den <span class="coral">4 Größen</span> ein:</p>
+                        <br>
+                        <pre>
+                            <code class="html">
+    <img srcset="
+                  img/x-large.jpg 1280w,
+                  img/large.jpg 1024w,
+                  img/medium.jpg 840w,
+                  img/small.jpg 420w">
+                            </code>
+                        </pre>
+                        <p>Die <span class="coral">w</span> Angabe weist den Browser darauf hin, <span class="coral">in welchen Breiten</span> das Bild zur Verfügung steht, <span class="coral">ohne</span> dass dieser die Bilder <span class="coral">herunterladen</span> muss.</p>
+                    </section>
+
+                    <section>
+                        <div class="grid-2">
+                            <div class="row">
+                                <div class="col">
+                                    <img src="../examples/img/x-large.jpg">
+                                </div>
+                                <div class="col fragment">
+                                    <img src="../examples/img/large.jpg">
+                                    <small>Einsparung 28%</small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col fragment">
+                                    <img src="../examples/img/medium.jpg">
+                                    <small>Einsparung 45%</small>
+                                </div>
+                                <div class="col fragment">
+                                    <img src="../examples/img/small.jpg">
+                                    <small>Einsparung 80%</small>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <p>Falls das Bild nicht den kompletten Bildschirm einnehmen soll, kann zusätzlich das Attribut <span class="coral">sizes</span> verwendet werden, um dem Browser mitzuteilen, <span class="coral">in welcher Größe</span> das Bild eingesetzt wird.</p>
+						<br />
+						<br />
+						<small>Mehr Informationen unter: <a href="http://css-tricks.com/video-screencasts/133-figuring-responsive-images/" target="_blank">http://css-tricks.com/video-screencasts/133-figuring-responsive-images/</a></small>
+                    </section>
+
+                    <section>
+                        <h3>Zusammenfassung von srcset w und sizes</h3>
+                        <br>
+                        <ul>
+                            <li>Der Browser wählt das passende Bild anhand der <span class="coral">Viewport-Breite</span> und der <span class="coral">benötigten Größe</span> automatisch aus</li>
+                            <li>Standardmäßig ist <span class="coral">sizes</span> auf <span class="coral">100vw</span> eingestellt, was dem kompletten Viewport entspricht</li>
+                            <li>Auf kleineren Displays wird ein <span class="coral">optimiertes Bild</span> heruntergeladen</li>
+                            <li>In unserem Beispiel <span class="coral">80% Einsparung</span> bei Smartphones</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h1>Was fehlt?</h1>
+                        <h2 class="fragment"><span class="coral">Die Retina-Optimierung</span></h2>
+                    </section>
+                    <section>
+                        Wir könnten ja <span class="coral">srcset w</span> und <span class="coral">x</span> für unsere <span class="coral">Retina-Bilder</span> kombinieren ...</p>
+
+                        <br><br>
+                        <div class="fragment">
+                        <h1>Leider nein <span class="coral">:</span>(</h1>
+                        <br>
+                        <br>
+                        <br>
+                        <p><small>Weitere Infos: <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#attr-img-srcset" target="_blank">https://html.spec.whatwg.org/multipage/embedded-content.html#attr-img-srcset</a></small></p>
+                        </div>
+                        <br>
+                    </section>
+                </section>
+
+                <section>
+                    <section>Das wars?</section>
+
+                    <section>
+                        <h1>Nicht so schnell</h1>
+                        <br>
+                        <p class="fragment">Es gibt da noch das <span class="coral">picture Element</span></p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>&lt;picture&gt;</h2>
+                        <br>
+                        <ul>
+                            <li>wurde im <span class="coral">September 2014</span> in <span class="coral">Chrome 38</span>, <span class="coral">Chrome</span> für <span class="coral">Android</span> und <span class="coral">Opera 25</span> integriert, zusammen mit den bereits vorgestellten Features srcset w und sizes</li>
+                            <li>Damit können bereits <span class="coral">weltweit 22%</span>* darauf nativ zugreifen</li>
+                            <li>Und für die anderen Browser kommt <span class="coral">Picturefill.js</span> zum Einsatz</li>
+                        </ul>
+                        <br><br><br>
+                        <small>* Quelle: <a href="http://caniuse.com/#feat=picture" target="_blank">http://caniuse.com/#feat=picture</a></small>
+                    </section>
+
+                    <section>
+                        <p>Unser vorheriges Beispiel</p>
+
+                        <pre>
+                            <code class="html">
+    <img srcset="
+                img/x-large.jpg 1280w,
+                img/large.jpg 1024w,
+                img/medium.jpg 840w,
+                img/small.jpg 420w">
+                            </code>
+                        </pre>
+
+                        <div class="fragment" style="margin-top: -20px">
+                            funktioniert auch als <span class="coral">picture</span> Element
+
+                            <pre>
+                                <code class="html">
+        <picture>
+            <source srcset="
+                img/x-large.jpg 1280w,
+                img/large.jpg 1024w,
+                img/medium.jpg 840w,
+                img/small.jpg 420w">
+        </picture>
+                                </code>
+                            </pre>
+                        </div>
+                    </section>
+
+                    <section>
+                        <p>Mit picture ist es außerdem möglich, <span class="coral">mehrere source Tags einzubinden</span> und diese mit <span class="coral">Media Queries</span> zu versehen.</p>
+                        <br>
+                        <div class="fragment">
+                            <p>Z.B. gibt es diesen Retina Media Query,<br>
+                                den wir für unsere Retina-Grafiken einsetzen können:</p>
+                            <pre>
+                                <code class="html">
+    <source media="(min-resolution: 192dpi),
+                   (-webkit-min-device-pixel-ratio: 2)">
+                        </code>
+                            </pre>
+                            <p><span class="coral">192 dpi resolution</span> = Retina-Auflösung, genau wie die für Safari und iOS benötigte Syntax <span class="coral">Device pixel ratio</span> von <span class="coral">2</span>.</p>
+                        </div>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h1>Und das machen wir</h1>
+                        <p></p>
+                    </section>
+
+                    <section>
+
+                        <p>Für die <span class="coral">Retina-Varianten</span> unseres Bildes<br>
+                            fügen wir ein zusätzliches <span class="coral">source Tag</span> ein:</p>
+
+                        <div class="fragment">
+                            <pre>
+                                <code class="html">
+            <picture>
+                <source media="(min-resolution: 192dpi),
+                               (-webkit-min-device-pixel-ratio: 2)" srcset="
+                    img/x-large@2x.jpg 2560w,
+                    img/large@2x.jpg 2048w,
+                    img/medium@2x.jpg 1680w,
+                    img/small@2x.jpg 840w">
+                <source srcset="
+                    img/x-large.jpg 1280w,
+                    img/large.jpg 1024w,
+                    img/medium.jpg 840w,
+                    img/small.jpg 420w">
+                <img src="img/small.jpg">
+            </picture>
+                                </code>
+                            </pre>
+                            <p>Der Media Query sorgt dafür, dass <span class="coral">Retina-Geräte das erste source verwenden</span>, normale Displays benutzen das zweite.</p>
+                        </div>
+                    </section>
+
+
+                    <section>
+                        <p>Damit lassen wir weiterhin den Browser entscheiden, welche <span class="coral">Bildgröße</span> für den aktuellen <span class="coral">Viewport</span> geeignet ist.</p>
+                        <br><br>
+                        <ul>
+                            <li>Auf Retina-Geräten geben wir die <span class="coral">optimierten JPGs</span> mit <span class="coral">30% Qualität</span> und <span class="coral">doppeler (Retina) Größe</span> zur Auswahl</li>
+                            <li>Normale Displays nutzen die JPGs in Normalgröße</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <h1>Probiert es aus <span class="coral">:</span>)</h1>
+                    <br>
+                    <br>
+                    <div class="fragment">
+                        <p>Die Beispiele aus diesem Talk findet ihr hier:</p>
+                        <br>
+                        <ul>
+                            <li><a href="../examples/srcset-x.html" target="_blank">Retina-Optimierung mit srcset x</a></li>
+                            <li><a href="../examples/srcset-w.html" target="_blank">Dem Browser mehrere Bilder bereitstellen mit srcset w</a></li>
+                            <li><a href="../examples/picture.html" target="_blank">Das picture Element mit Retina Media Query</a></li>
+                        </ul>
+                    </div>
+                    <br><br>
+                    <p class="fragment">Und die Slides sind ab sofort online unter<br>
+                        <a href="http://denkwerk.github.io/talks/">http://denkwerk.github.io/talks/</a></p>
+                </section>
+
+                <section>
+                    <section>
+                        <h1>Danke.</h1>
+                    </section>
+
+                    <section>
+                        <h1>Fragen?</h1>
+                        <br><br>
+                        <p>Gerne jetzt oder im Anschluss oder per Twitter (<a href="https://twitter.com/agorilla" target="_blank">@agorilla</a>)</p>
+                    </section>
+                </section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
