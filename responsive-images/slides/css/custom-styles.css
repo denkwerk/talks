@@ -4,13 +4,6 @@
  * HEADERS
  *********************************************/
 
-@font-face {
-  font-family: 'League Gothic';
-  src: url("../lib/font/league_gothic-webfont.eot");
-  src: url("../lib/font/league_gothic-webfont.eot?#iefix") format("embedded-opentype"), url("../lib/font/league_gothic-webfont.woff") format("woff"), url("../lib/font/league_gothic-webfont.ttf") format("truetype"), url("../lib/font/league_gothic-webfont.svg#LeagueGothicRegular") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
 .reveal h1,
 .reveal h2,
 .reveal h3,
@@ -18,16 +11,23 @@
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #eeeeee;
-  font-family: "League Gothic", Impact, sans-serif;
-  line-height: 0.9em;
+  color: black;
+  font-family: Georgia, serif;
+  line-height: 1.2;
   letter-spacing: 0.02em;
-  text-transform: uppercase;
-  text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2); }
+}
 
+body {
+    background: white;
+}
+
+.reveal {
+    font-family: Georgia, serif;
+    color: black;
+}
 
 .reveal a:not(.image) {
-    color: #e7ad52;
+    color: #34c46d;
 }
 
 .reveal section h2 {
@@ -39,6 +39,12 @@
     background: none;
     width: 60%;
 }
+
+.reveal section img.dark {
+    background: grey;
+    padding: 1em;
+}
+
 .reveal section img.normalImg {
     width: auto;
     display: inline;
@@ -88,7 +94,7 @@
     padding: 0 50px;
 }
 .coral {
-    color: #47d0f8;
+    /*color: #47d0f8;*/
 }
 
 .semi-transparent {
@@ -101,7 +107,7 @@ p.copyright {
     padding-top: 0;
 }
 h1.coral {
-    color: #47d0f8;
+    /*color: #47d0f8;*/
     text-shadow: none;
     font-size: 5em;
 }
@@ -145,4 +151,26 @@ h1.flying-words {
 
 h3.lunch-text {
 	margin-top: 30px;
+}
+
+span.font-small,
+p.font-small {
+    font-size: 20px;
+}
+
+span.font-medium,
+p.font-medium {
+    font-size: 26px;
+}
+
+.reveal pre code {
+    max-height: none;
+}
+
+.reveal pre code.code-limit {
+    max-height: 600px;
+}
+
+.align-left {
+    text-align: left;
 }
