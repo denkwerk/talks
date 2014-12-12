@@ -21,6 +21,11 @@ body {
     background: white;
 }
 
+::selection,
+.reveal .progress span {
+    background: #34c46d;
+}
+
 .reveal {
     font-family: Georgia, serif;
     color: black;
@@ -28,6 +33,15 @@ body {
 
 .reveal a:not(.image) {
     color: #34c46d;
+}
+
+.reveal .progress {
+    height: 7px;
+    background: none;
+}
+
+.reveal h1 {
+    text-shadow: none;
 }
 
 .reveal section h2 {
@@ -98,7 +112,7 @@ body {
 }
 
 .semi-transparent {
-    opacity: 0.5;
+    opacity: 0.3;
 }
 
 p.copyright {
@@ -106,11 +120,7 @@ p.copyright {
     margin-top: 0;
     padding-top: 0;
 }
-h1.coral {
-    /*color: #47d0f8;*/
-    text-shadow: none;
-    font-size: 5em;
-}
+
 .bold {
     font-weight: bold;
 }
