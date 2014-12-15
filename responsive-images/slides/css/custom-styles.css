@@ -35,6 +35,10 @@ body {
     color: #34c46d;
 }
 
+.reveal a:not(.image):hover {
+    color: #34c46d;
+}
+
 .reveal .progress {
     height: 7px;
     background: none;
@@ -112,7 +116,7 @@ body {
 }
 
 .semi-transparent {
-    opacity: 0.3;
+    opacity: 0.5;
 }
 
 p.copyright {
@@ -183,4 +187,8 @@ p.font-medium {
 
 .align-left {
     text-align: left;
+}
+
+.reveal section img.img-shadow {
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
 }
